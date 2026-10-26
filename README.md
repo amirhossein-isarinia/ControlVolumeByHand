@@ -1,83 +1,82 @@
-# 🎵 کنترل صدا و موسیقی با حرکات دست
+# ControlVolumeByHand
 
-یک پروژه پایتونی برای کنترل صدای سیستم و پخش موسیقی با استفاده از حرکات دست، وب‌کم و بینایی ماشین.
+Control your computer's system volume and music playback using hand gestures and a webcam.
 
-در این پروژه، با کمک کتابخانه‌های OpenCV و MediaPipe، موقعیت دست در تصویر وب‌کم شناسایی می‌شود و حرکات دست برای کنترل صدا و پخش موسیقی به کار می‌روند.
+This project uses computer vision and hand tracking to provide a touch-free way to interact with your computer.
 
-## ✨ امکانات
+## Features
 
-- 🔊 کنترل صدای سیستم با حرکات انگشت اشاره
-- 🎵 جابه‌جایی بین آهنگ‌ها با حرکت افقی دست
-- ⏯️ پخش و توقف موسیقی با حرکت عمودی دست
-- ✋ تشخیص دست و شناسایی نقاط کلیدی آن
-- 📷 نمایش تصویر زنده وب‌کم
-- ⚡ نمایش نرخ فریم تصویر برای بررسی عملکرد برنامه
+- **Volume Control:** Adjust system volume using hand gestures.
+- **Music Navigation:** Switch between songs using horizontal hand movements.
+- **Playback Control:** Play or pause music using vertical hand movements.
+- **Real-Time Hand Tracking:** Detect and track hand landmarks.
+- **Webcam Preview:** Display the live camera feed.
+- **FPS Display:** Monitor application performance.
 
-## 🛠️ فناوری‌های استفاده‌شده
+## Technologies
 
 - Python
-- OpenCV برای پردازش تصویر
-- MediaPipe برای تشخیص دست
-- NumPy برای محاسبات عددی
-- VLC برای پخش موسیقی
+- OpenCV
+- MediaPipe
+- NumPy
+- python-vlc
+- VLC Media Player
 
-## 📋 پیش‌نیازها
+## Requirements
 
-برای اجرای پروژه به موارد زیر نیاز دارید:
+- Ubuntu or another compatible Linux distribution
+- A compatible Python version
+- A working webcam
+- VLC Media Player
+- `pactl` or `amixer` for system volume control
 
-- سیستم‌عامل لینوکس؛ دستورات نصب زیر مخصوص اوبونتو هستند.
-- پایتون و ابزار ساخت محیط مجازی
-- وب‌کم
-- VLC
-- ابزار کنترل صدای سیستم مانند `pactl` یا `amixer`
+## Installation
 
-## 🚀 نصب و راه‌اندازی
+### 1. Install system dependencies
 
-### ۱. نصب پیش‌نیازهای سیستم
-
-در اوبونتو ترمینال را باز کنید و اجرا کنید:
+On Ubuntu, run:
 
     sudo apt update
     sudo apt install python3-venv python3-pip vlc
 
-### ۲. دریافت پروژه
+### 2. Clone the repository
 
     git clone https://github.com/amirhossein-isarinia/ControlVolumeByHand.git
     cd ControlVolumeByHand
 
-### ۳. ساخت محیط مجازی پایتون
+### 3. Create a virtual environment
 
     python3 -m venv .venv
     source .venv/bin/activate
 
-### ۴. نصب کتابخانه‌های موردنیاز
+### 4. Install Python dependencies
 
     python -m pip install --upgrade pip
     python -m pip install -r requirements.txt
 
-اگر هنگام نصب MediaPipe خطای ناسازگاری نسخه پایتون دریافت کردید، از نسخه‌ای از پایتون استفاده کنید که با نسخه MediaPipe انتخاب‌شده سازگار باشد.
+Make sure your Python version is supported by the installed MediaPipe release.
 
-## 🎧 افزودن موسیقی
+## Add Your Music
 
-فایل‌های صوتی خود را در پوشه `music/` قرار دهید.
+Place your own audio files in the `music/` directory.
 
-برای مثال:
+Example:
 
     music/
-    ├── آهنگ-اول.mp3
-    └── آهنگ-دوم.mp3
+    ├── song-one.mp3
+    └── song-two.mp3
 
-فایل‌های موسیقی شخصی در مخزن عمومی گیت‌هاب قرار نمی‌گیرند؛ بنابراین باید آن‌ها را جداگانه به پوشه موسیقی اضافه کنید.
+Music files are excluded from this repository. Add your own audio files locally before running the application.
 
-## ▶️ اجرای برنامه
+## Usage
 
-پس از فعال‌کردن محیط مجازی و نصب وابستگی‌ها، اجرا کنید:
+Start the application:
 
     python VolumeHandControl.py
 
-برای بستن پنجره وب‌کم، کلید `q` را فشار دهید.
+Press `q` in the webcam window to quit.
 
-## 📁 ساختار پروژه
+## Project Structure
 
     ControlVolumeByHand/
     ├── VolumeHandControl.py
@@ -86,17 +85,24 @@
     ├── README.md
     └── music/
 
-- `VolumeHandControl.py`: منطق اصلی کنترل صدا و پخش موسیقی
-- `HandTrackingModule.py`: توابع مربوط به تشخیص و ردیابی دست
-- `requirements.txt`: کتابخانه‌های موردنیاز پروژه
-- `music/`: محل قرارگیری فایل‌های موسیقی شخصی
+- `VolumeHandControl.py` — Main application and gesture controls.
+- `HandTrackingModule.py` — Hand detection and tracking utilities.
+- `requirements.txt` — Python dependencies.
+- `music/` — Directory for local audio files.
 
-## 👨‍💻 توسعه‌دهنده
+## Troubleshooting
 
-**امیرحسین سارینیا**
+- **Webcam issues:** Check that your webcam is connected and accessible.
+- **Audio issues:** Verify that VLC and its system libraries are installed.
+- **Volume issues:** Check that `pactl` or `amixer` is available.
+- **Installation issues:** Make sure your Python version supports the required packages.
 
-گیت‌هاب: https://github.com/amirhossein-isarinia
+## Author
 
----
+**Amirhossein Sarinia**
 
-این پروژه با هدف آزمایش کاربرد بینایی ماشین و تعامل انسان با کامپیوتر از طریق حرکات دست توسعه داده شده است.
+GitHub: https://github.com/amirhossein-isarinia
+
+## License
+
+No license has been specified for this project yet.
